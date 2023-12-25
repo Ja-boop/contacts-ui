@@ -43,7 +43,7 @@
 		<div class="flex flex-col w-full">
 			<InputProvider name="email" type="email">
 				<Label>Email</Label>
-				<Input />
+				<Input data-cy="email-input" />
 				<InputErrorMessage />
 			</InputProvider>
 		</div>
@@ -51,12 +51,12 @@
 		<div class="flex flex-col w-full">
 			<InputProvider name="password" type="password">
 				<Label>Password</Label>
-				<Input />
+				<Input data-cy="password-input" />
 				<InputErrorMessage />
 			</InputProvider>
 		</div>
 
-		<Button className="mt-5 w-9/12 max-w-64 h-14">
+		<Button className="mt-5 w-9/12 max-w-64 h-14" data-cy="login-button">
 			{#if isSubmitting}
 				<Circle size="35" color="#FBEEFF" />
 			{:else}

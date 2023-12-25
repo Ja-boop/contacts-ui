@@ -34,7 +34,9 @@
 			} flex-col w-full gap-2 items-start justify-end px-5 py-2 h-auto bg-secondary sm:h-24 sm:flex sm:gap-5 sm:flex-row sm:items-center`}
 		>
 			<p class="font-semibold text-lg text-secondary-text">{`Welcome ${user.name}!`}</p>
-			<Button on:click={handleLogout} className="w-24 h-10 py-2 text-sm font-semibold">LOGOUT</Button>
+			<Button on:click={handleLogout} className="w-24 h-10 py-2 text-sm font-semibold" data-cy="logout-button">
+				LOGOUT
+			</Button>
 		</header>
 	</div>
 {/if}
