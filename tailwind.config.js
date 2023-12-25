@@ -10,7 +10,11 @@ export default {
 			'primary-text': 'var(--primary-text)',
 			'secondary-text': 'var(--secondary-text)'
 		},
-		extend: {}
+		extend: {
+			fontFamily: {
+				'red-hat-display': ['Red Hat Display', 'sans-serif']
+			}
+		}
 	},
 	plugins: []
 };
