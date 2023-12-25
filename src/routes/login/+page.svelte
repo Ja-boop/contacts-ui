@@ -56,7 +56,7 @@
 			</InputProvider>
 		</div>
 
-		<Button className="mt-14 w-9/12 max-w-64 h-14">
+		<Button className="mt-5 w-9/12 max-w-64 h-14">
 			{#if isSubmitting}
 				<Circle size="35" color="#FBEEFF" />
 			{:else}
