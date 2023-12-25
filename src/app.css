@@ -10,6 +10,9 @@
 		--tertiary: #ffffff;
 		--primary-text: #120e21;
 		--secondary-text: #99879d;
+		--danger: #ff0000;
+		--success: #00ff00;
+		--warning: #ff9900;
 	}
 }
 
