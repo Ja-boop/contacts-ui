@@ -11,6 +11,6 @@
 	export let forControl = '';
 </script>
 
-<label for={forControl || $input.name} {...$$restProps} class="font-bold text-[#26355C]">
+<label for={forControl || $input.name} {...$$restProps} class="font-bold">
 	<slot />
 </label>

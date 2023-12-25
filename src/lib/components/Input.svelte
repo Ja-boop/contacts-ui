@@ -26,7 +26,7 @@
 	{...inputType}
 	name={$input.name || name}
 	bind:value
-	class="h-14 bg-[#FBEEFF] text-[#99879D] rounded-md indent-4"
+	class="h-14 bg-secondary text-secondary-text rounded-md indent-4"
 	on:keydown={clearInputError}
 	{...$$restProps}
 />

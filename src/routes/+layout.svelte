@@ -24,16 +24,16 @@
 </script>
 
 {#if user}
-	<div class={`flex flex-col items-end ${isMenuVisible && 'bg-[#FBEEFF]'}`}>
+	<div class={`flex flex-col items-end ${isMenuVisible && 'bg-secondary'}`}>
 		<button on:click={toggleMenu} class="sm:hidden">
 			<MenuIcon />
 		</button>
 		<header
 			class={`${
 				isMenuVisible ? 'flex' : 'hidden'
-			} flex-col w-full gap-2 items-start justify-end px-5 py-2 h-auto bg-[#FBEEFF] sm:h-24 sm:flex sm:gap-5 sm:flex-row sm:items-center`}
+			} flex-col w-full gap-2 items-start justify-end px-5 py-2 h-auto bg-secondary sm:h-24 sm:flex sm:gap-5 sm:flex-row sm:items-center`}
 		>
-			<p class="font-semibold text-lg text-[#9378FF]">{`Welcome ${user.name}!`}</p>
+			<p class="font-semibold text-lg text-secondary-text">{`Welcome ${user.name}!`}</p>
 			<Button on:click={handleLogout} className="w-24 h-10 py-2 text-sm font-semibold">LOGOUT</Button>
 		</header>
 	</div>

@@ -1,3 +1,20 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+@layer base {
+	:root {
+		--background: #faf9fe;
+		--primary: #9378ff;
+		--secondary: #fbeeff;
+		--tertiary: #ffffff;
+		--primary-text: #120e21;
+		--secondary-text: #99879d;
+	}
+}
+
+@layer base {
+	body {
+		@apply bg-background text-primary-text;
+	}
+}
