@@ -4,4 +4,4 @@
 	const input = getInputContext();
 </script>
 
-<p class="h-6 text-red-600 font-semibold">{$input.error || ''}</p>
+<p class="h-6 text-state-danger font-semibold">{$input.error || ''}</p>

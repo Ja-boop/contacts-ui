@@ -8,7 +8,12 @@ export default {
 			secondary: 'var(--secondary)',
 			tertiary: 'var(--tertiary)',
 			'primary-text': 'var(--primary-text)',
-			'secondary-text': 'var(--secondary-text)'
+			'secondary-text': 'var(--secondary-text)',
+			state: {
+				danger: 'var(--danger)',
+				success: 'var(--success)',
+				warning: 'var(--warning)'
+			}
 		},
 		extend: {
 			fontFamily: {
