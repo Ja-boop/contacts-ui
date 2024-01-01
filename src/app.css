@@ -5,6 +5,7 @@
 @layer base {
 	:root {
 		--background: #faf9fe;
+		--background-secondary: #ebebeb;
 		--primary: #9378ff;
 		--secondary: #fbeeff;
 		--tertiary: #ffffff;
@@ -20,4 +21,55 @@
 	body {
 		@apply bg-background text-primary-text font-red-hat-display;
 	}
+}
+
+.contact-btn {
+	@apply bg-primary py-4 flex items-center justify-center text-tertiary rounded-full hover:brightness-90 active:brightness-100;
+}
+
+.contact-input {
+	@apply h-14 bg-secondary text-secondary-text rounded-lg font-normal;
+}
+
+.translate-3d {
+	transform: translate3d(0, 0, 1px);
+}
+
+.pac-container {
+	max-height: 250px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	font-family: 'Red Hat Display', 'sans-serif';
+	box-shadow: none;
+}
+
+.pac-icon {
+	display: none;
+}
+
+.pac-logo::after {
+	display: none;
+}
+
+.pac-item {
+	background: var(--secondary);
+	height: 4rem;
+}
+
+.pac-item:focus-within {
+	background: var(--tertiary);
+}
+
+.pac-matched {
+	color: var(--primary-text);
+}
+
+.pac-item-query {
+	color: var(--secondary-text);
+}
+
+.pac-matched,
+.pac-item-query {
+	font-size: 1rem;
+	line-height: 1.5rem;
 }
