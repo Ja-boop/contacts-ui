@@ -1,16 +1,14 @@
 <script lang="ts">
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 	interface $$Props extends HTMLButtonAttributes {
-		className: string;
+		class?: string;
 	}
 
-	export let className = '';
+	let className = '';
+
+	export { className as class };
 </script>
 
-<button
-	on:click
-	class={`${className} bg-primary py-4 flex items-center justify-center text-tertiary rounded-full hover:brightness-90 active:brightness-100`}
-	{...$$restProps}
->
+<button on:click class={`${className} contact-btn`} {...$$restProps}>
 	<slot />
 </button>

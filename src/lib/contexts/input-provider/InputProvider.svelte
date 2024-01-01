@@ -1,12 +1,11 @@
 <script lang="ts">
-	import { formErrors } from '$lib/stores/form-errors';
+	import { formErrors } from '$lib/stores';
 	import { getInputContext, setInputContext } from './context';
 
 	export let name: string;
-	export let type: string;
+	export let type = 'text';
 
 	setInputContext();
-
 	const input = getInputContext();
 
 	$input.name = name;

@@ -8,9 +8,11 @@ declare global {
 		// interface Error {}
 		interface Locals {
 			user?: IUser;
+			backPath?: string;
 		}
 		interface PageData {
 			user?: IUser;
+			backPath?: string;
 		}
 		// interface PageState {}
 		// interface Platform {}

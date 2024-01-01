@@ -1,32 +1,35 @@
 <script lang="ts">
 	import { getInputContext } from '$lib/contexts/input-provider/context';
-	import { formErrors } from '$lib/stores/form-errors';
+	import { formErrors } from '$lib/stores';
 	import type { HTMLInputAttributes } from 'svelte/elements';
 
 	interface $$Props extends HTMLInputAttributes {
 		type?: string;
 		name?: string;
 		value?: string;
+		elementReference?: HTMLInputElement;
 	}
 
+	export let elementReference = {};
 	export let type = 'text';
 	export let value = '';
 	export let name = '';
 	const input = getInputContext();
 	const inputType = {
-		type: $input.type || type
+		type: $input?.type || type
 	};
 
 	function clearInputError() {
-		$formErrors[$input.name] = [];
+		$formErrors[$input?.name] = [];
 	}
 </script>
 
 <input
 	{...inputType}
-	name={$input.name || name}
+	name={name || $input?.name}
 	bind:value
-	class="h-14 bg-secondary text-secondary-text rounded-md indent-4"
+	bind:this={elementReference}
+	class="contact-input indent-4"
 	on:keydown={clearInputError}
 	{...$$restProps}
 />

@@ -16,6 +16,7 @@
 		"@sveltejs/adapter-auto": "^3.0.0",
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^3.0.0",
+		"@types/google.maps": "^3.54.10",
 		"@typescript-eslint/eslint-plugin": "^6.0.0",
 		"@typescript-eslint/parser": "^6.0.0",
 		"autoprefixer": "^10.4.16",
@@ -35,6 +36,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@googlemaps/js-api-loader": "^1.16.2",
 		"axios": "^1.6.2",
 		"svelte-loading-spinners": "^0.3.4",
 		"z": "^1.0.1",
