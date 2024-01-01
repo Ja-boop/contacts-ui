@@ -4,6 +4,7 @@ export default {
 	theme: {
 		colors: {
 			background: 'var(--background)',
+			'background-secondary': 'var(--background-secondary)',
 			primary: 'var(--primary)',
 			secondary: 'var(--secondary)',
 			tertiary: 'var(--tertiary)',
@@ -16,6 +17,11 @@ export default {
 			}
 		},
 		extend: {
+			gridTemplateColumns: {
+				'fill-72': 'repeat(auto-fill, minmax(18rem, 1fr))',
+				'fill-74': 'repeat(auto-fill, minmax(20rem, 1fr))',
+				'fill-76': 'repeat(auto-fill, minmax(22rem, 1fr))'
+			},
 			fontFamily: {
 				'red-hat-display': ['Red Hat Display', 'sans-serif']
 			}
