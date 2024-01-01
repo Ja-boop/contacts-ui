@@ -4,7 +4,7 @@
 	import InputErrorMessage from '$lib/components/InputErrorMessage.svelte';
 	import Label from '$lib/components/Label.svelte';
 	import InputProvider from '$lib/contexts/input-provider/InputProvider.svelte';
-	import { formErrors } from '$lib/stores/form-errors';
+	import { formErrors } from '$lib/stores';
 	import AuthService from '$lib/services/auth/AuthService';
 	import loginSchema from '$lib/utils/form-validations/schemas/login';
 	import { Circle } from 'svelte-loading-spinners';
@@ -56,7 +56,7 @@
 			</InputProvider>
 		</div>
 
-		<Button className="mt-5 w-9/12 max-w-64 h-14" data-cy="login-button">
+		<Button class="mt-5 w-9/12 max-w-64 h-14" data-cy="login-button">
 			{#if isSubmitting}
 				<Circle size="35" color="#FBEEFF" />
 			{:else}
