@@ -48,7 +48,7 @@
 			>
 				{#each $searchStore.filtered as { name, title, image_path, id }}
 					<button on:click={() => goto(`/contact/${id}`)}>
-						<li>
+						<li data-cy="contact-list-item">
 							<ContactCard imageUrl={`${imageUrl}/${image_path}`} {name} {title} />
 						</li>
 					</button>
@@ -62,7 +62,7 @@
 			<div class="fixed mr-8 mb-11 bottom-0 right-0 h-24 sm:hidden">
 				<AddIcon />
 			</div>
-			<button class="contact-btn px-14 max-sm:hidden">Add new contacts</button>
+			<button class="contact-btn px-14 max-sm:hidden" data-cy="add-contact-btn">Add new contacts</button>
 		</a>
 	</div>
 </div>

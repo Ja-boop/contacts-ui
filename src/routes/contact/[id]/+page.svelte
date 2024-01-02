@@ -19,7 +19,7 @@
 <ContactProvider {contact}>
 	<div class="grid grid-cols-1 grid-rows-[auto_auto_1fr] h-[calc(100vh-60px)]">
 		<ContactPicture>
-			<Button on:click={redirectToEdit} class="self-end px-11 text-lg max-md:hidden">EDIT</Button>
+			<Button on:click={redirectToEdit} class="self-end px-11 text-lg max-md:hidden" data-cy="edit-btn">EDIT</Button>
 		</ContactPicture>
 
 		<div class="col-span-full grid w-11/12 m-auto grid-cols-1 gap-y-6 md:grid-cols-[1fr_auto] md:gap-x-20 md:w-auto">
