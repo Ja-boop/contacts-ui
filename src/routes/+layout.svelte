@@ -8,6 +8,7 @@
 
 	$: backPath = $page.data.backPath;
 	$: user = $page.data.user;
+	$: url = $page.url;
 
 	const loginPagePath = '/login';
 	const homePagePath = '/';
@@ -19,13 +20,17 @@
 		const authService = new AuthService(fetch, token);
 		const response = await authService.logout();
 
-		if (response.status === 200) {
+		if (response.ok) {
 			window.location.href = loginPagePath;
 		}
 	}
 
 	function toggleMenu() {
 		isMenuVisible = !isMenuVisible;
+	}
+
+	$: if (url.searchParams.has('redirect')) {
+		user = undefined;
 	}
 </script>
 
