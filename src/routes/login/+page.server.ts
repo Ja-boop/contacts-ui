@@ -20,7 +20,7 @@ export const load = (async ({ cookies, fetch, locals }) => {
 }) satisfies PageServerLoad;
 
 export const actions: Actions = {
-	default: async ({ request, fetch, cookies }) => {
+	default: async ({ request, fetch, cookies, url }) => {
 		const formData = await request.formData();
 		const errors = await validateFormData(formData, loginSchema);
 		const token = cookies.get('XSRF-TOKEN');
@@ -42,7 +42,7 @@ export const actions: Actions = {
 		});
 
 		if (response.ok) {
-			redirect(307, `/`);
+			redirect(307, url.searchParams.get('redirect') || '/');
 		}
 	}
 };
