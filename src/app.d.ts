@@ -9,10 +9,12 @@ declare global {
 		interface Locals {
 			user?: IUser;
 			backPath?: string;
+			token: string;
 		}
 		interface PageData {
 			user?: IUser;
 			backPath?: string;
+			token: string;
 		}
 		// interface PageState {}
 		// interface Platform {}

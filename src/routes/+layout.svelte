@@ -6,17 +6,21 @@
 	import MenuIcon from '$lib/icons/MenuIcon.svelte';
 	import Arrow2Icon from '$lib/icons/Arrow2Icon.svelte';
 
+	$: backPath = $page.data.backPath;
+	$: user = $page.data.user;
+	$: url = $page.url;
+
 	const loginPagePath = '/login';
 	const homePagePath = '/';
-	const authService = new AuthService();
-	const user = $page.data.user;
-	let backPath = $page.data.backPath;
+
 	let isMenuVisible = false;
 
 	async function handleLogout() {
+		const token = $page.data.token;
+		const authService = new AuthService(fetch, token);
 		const response = await authService.logout();
 
-		if (response.status === 200) {
+		if (response.ok) {
 			window.location.href = loginPagePath;
 		}
 	}
@@ -25,7 +29,9 @@
 		isMenuVisible = !isMenuVisible;
 	}
 
-	$: if ($page.data.backPath) backPath = $page.data.backPath;
+	$: if (url.searchParams.has('redirect')) {
+		user = undefined;
+	}
 </script>
 
 {#if user}

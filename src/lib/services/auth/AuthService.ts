@@ -1,26 +1,37 @@
 import RequestService from '../RequestService';
-import type { IUser } from './interfaces/IUser';
 
 class AuthService {
 	private requestService: RequestService;
 	private serverUrl: string;
-	constructor() {
-		this.requestService = new RequestService();
+	constructor(
+		private _fetch: typeof fetch,
+		_token?: string
+	) {
+		this.requestService = new RequestService(this._fetch, _token || '');
 		this.serverUrl = `${import.meta.env.VITE_SERVER_URL}`;
 	}
 
+	public async initCSRFToken() {
+		return await this._fetch(`${this.serverUrl}/sanctum/csrf-cookie`, {
+			credentials: 'include'
+		});
+	}
+
 	public async login(formData: FormData) {
-		await this.requestService.get(`${this.serverUrl}/sanctum/csrf-cookie`);
-		return await this.requestService.post(`${this.serverUrl}/api/login`, formData);
+		const parsedFormData = JSON.stringify(Object.fromEntries(formData));
+		return await this.requestService.post(`${this.serverUrl}/api/login`, parsedFormData, {
+			'Content-Type': 'application/json'
+		});
 	}
 
 	public async logout() {
-		return await this.requestService.post(`${this.serverUrl}/api/logout`);
+		return await this.requestService.post(`${this.serverUrl}/api/logout`, undefined, {
+			'Content-Type': 'application/json'
+		});
 	}
 
-	public async getUser(): Promise<IUser> {
-		const response = await this.requestService.get(`${this.serverUrl}/api/user`);
-		return response.data;
+	public async getUser() {
+		return this.requestService.get(`${this.serverUrl}/api/user`);
 	}
 }
 

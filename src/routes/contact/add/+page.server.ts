@@ -5,11 +5,10 @@ import type { Actions } from './$types';
 import ContactService from '$lib/services/contacts/ContactService';
 
 export const actions: Actions = {
-	default: async ({ request, fetch, cookies }) => {
-		const contactService = new ContactService(fetch);
+	default: async ({ request, fetch, locals: { token } }) => {
 		const formData = await request.formData();
 		const errors = await validateFormData(formData, addContactSchema);
-		const token = cookies.get('XSRF-TOKEN');
+		const contactService = new ContactService(fetch, token);
 
 		if (!token) {
 			throw new Error('Token not found');
@@ -19,7 +18,7 @@ export const actions: Actions = {
 			return fail(400, { errors });
 		}
 
-		const contact = await contactService.create(formData, token);
+		const contact = await contactService.create(formData);
 
 		if (contact) {
 			redirect(307, `/`);
