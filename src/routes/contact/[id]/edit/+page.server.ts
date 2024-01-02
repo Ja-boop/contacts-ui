@@ -20,13 +20,12 @@ export const load: PageServerLoad = async ({ params, fetch }) => {
 };
 
 export const actions: Actions = {
-	default: async ({ request, fetch, cookies, params }) => {
+	default: async ({ request, fetch, params, locals: { token } }) => {
 		const id = params.id;
-		const contactService = new ContactService(fetch);
+		const contactService = new ContactService(fetch, token);
 		const formData = await request.formData();
 		const image = formData.get('image');
 		const errors = await validateFormData(formData, updateContactSchema);
-		const token = cookies.get('XSRF-TOKEN');
 
 		if (!token) {
 			throw new Error('Token not found');
@@ -40,7 +39,7 @@ export const actions: Actions = {
 			!image.size && formData.delete('image');
 		}
 
-		const contact = await contactService.update(id, formData, token);
+		const contact = await contactService.update(id, formData);
 
 		if (contact) {
 			redirect(307, `/contact/${id}`);

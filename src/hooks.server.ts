@@ -1,20 +1,16 @@
-import type { Handle } from '@sveltejs/kit';
+import AuthService from '$lib/services/auth/AuthService';
+import { type Handle } from '@sveltejs/kit';
 import dns from 'node:dns';
 dns.setDefaultResultOrder('ipv4first');
 
 export const handle: Handle = async ({ event, resolve }) => {
-	const response = await event.fetch(`${import.meta.env.VITE_SERVER_URL}/api/user`, {
-		method: 'GET',
-		headers: {
-			'content-type': 'application/json',
-			accept: 'application/json',
-			cookie: event.request.headers.get('cookie') as string
-		}
-	});
+	const authService = new AuthService(event.fetch);
+	const token = event.cookies.get('XSRF-TOKEN');
+	const user = await authService.getUser();
 
-	if (response.ok) {
-		const user = await response.json();
-		event.locals.user = user;
+	if (user.ok) {
+		event.locals.user = await user.json();
+		event.locals.token = token || '';
 	}
 
 	return await resolve(event);

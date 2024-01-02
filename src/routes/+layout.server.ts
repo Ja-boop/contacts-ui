@@ -5,10 +5,11 @@ export const load: LayoutServerLoad = async ({ locals, url }) => {
 	const loginPath = '/login';
 	const homePath = '/';
 	const user = locals.user;
+	const token = locals.token;
 
 	if (!user && url.pathname !== loginPath) {
 		return redirect(307, loginPath);
 	}
 
-	return { user, backPath: homePath };
+	return { user, backPath: homePath, token };
 };

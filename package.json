@@ -38,7 +38,6 @@
 	"type": "module",
 	"dependencies": {
 		"@googlemaps/js-api-loader": "^1.16.2",
-		"axios": "^1.6.2",
 		"set-cookie-parser": "^2.6.0",
 		"svelte-loading-spinners": "^0.3.4",
 		"z": "^1.0.1",

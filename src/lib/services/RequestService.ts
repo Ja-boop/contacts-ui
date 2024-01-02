@@ -1,28 +1,30 @@
-import axios from 'axios';
-
-type Methods = 'get' | 'post';
+type Methods = 'GET' | 'POST';
 
 class RequestService {
-	constructor() {
-		axios.defaults.withCredentials = true;
-		axios.defaults.withXSRFToken = true;
-	}
+	constructor(
+		private _fetch: typeof fetch,
+		private _token: string
+	) {}
 
-	private async request(method: Methods, url: string, data?: object) {
-		return axios[method](url, data, {
+	private async request(method: Methods, url: string, headers?: HeadersInit, body?: BodyInit) {
+		return this._fetch(url, {
+			method,
+			credentials: 'include',
 			headers: {
-				'content-type': 'application/json',
-				Accept: 'application/json'
-			}
+				...headers,
+				Accept: 'application/json',
+				'X-XSRF-TOKEN': this._token
+			},
+			body
 		});
 	}
 
 	public async get(url: string) {
-		return this.request('get', url);
+		return await this.request('GET', url);
 	}
 
-	public post(url: string, data?: object) {
-		return this.request('post', url, data);
+	public post(url: string, body?: BodyInit, headers?: HeadersInit) {
+		return this.request('POST', url, headers, body);
 	}
 }
 
