@@ -38,7 +38,7 @@
 			</div>
 		{/if}
 		<h2 class="text-2xl font-bold text-primary-text min-h-8 mb-2">{$contact.name}</h2>
-		<p class="font-semibold text-secondary-text min-h-6">{$contact.title}</p>
+		<p class="font-semibold text-secondary-text min-h-6" data-cy="contact-title">{$contact.title}</p>
 	</div>
 
 	<slot />

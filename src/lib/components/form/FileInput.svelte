@@ -25,4 +25,5 @@
 	class="hidden"
 	bind:value
 	aria-required="true"
+	data-cy="file-input"
 />

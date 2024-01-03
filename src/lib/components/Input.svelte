@@ -32,4 +32,5 @@
 	class="contact-input indent-4"
 	on:keydown={clearInputError}
 	{...$$restProps}
+	data-cy={`${name || $input?.name}-input`}
 />

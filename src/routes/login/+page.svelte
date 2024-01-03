@@ -36,7 +36,7 @@
 		<div class="flex flex-col w-full">
 			<InputProvider name="email" type="email">
 				<Label>Email</Label>
-				<Input data-cy="email-input" />
+				<Input />
 				<InputErrorMessage />
 			</InputProvider>
 		</div>
@@ -44,7 +44,7 @@
 		<div class="flex flex-col w-full">
 			<InputProvider name="password" type="password">
 				<Label>Password</Label>
-				<Input data-cy="password-input" />
+				<Input />
 				<InputErrorMessage />
 			</InputProvider>
 		</div>

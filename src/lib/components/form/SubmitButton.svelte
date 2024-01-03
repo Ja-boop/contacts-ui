@@ -6,7 +6,7 @@
 	export let onClick = () => {};
 </script>
 
-<Button class="w-1/2 font-semibold max-w-40 max-h-14" type="submit" on:click={onClick}>
+<Button class="w-1/2 font-semibold max-w-40 max-h-14" type="submit" on:click={onClick} data-cy="submit-btn">
 	{#if isLoading}
 		<Circle size="35" color="var(--secondary)" />
 	{:else}
