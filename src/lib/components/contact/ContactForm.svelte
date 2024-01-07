@@ -1,14 +1,14 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
 	import InputProvider from '$lib/contexts/input-provider/InputProvider.svelte';
-	import Input from '../Input.svelte';
+	import Input from '../input/Input.svelte';
 	import Label from '../Label.svelte';
 	import InputErrorMessage from '../InputErrorMessage.svelte';
 	import { onMount } from 'svelte';
 	import { getContactContext } from '$lib/contexts/contact/context';
 	import SubmitButton from '../form/SubmitButton.svelte';
 	import CancelButton from '../form/CancelButton.svelte';
-	import FileInput from '../form/FileInput.svelte';
+	import FileInput from '../input/FileInput.svelte';
 
 	const contact = getContactContext();
 	let files: FileList;

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Button from '$lib/components/Button.svelte';
-	import Input from '$lib/components/Input.svelte';
+	import Input from '$lib/components/input/Input.svelte';
 	import InputErrorMessage from '$lib/components/InputErrorMessage.svelte';
 	import Label from '$lib/components/Label.svelte';
 	import InputProvider from '$lib/contexts/input-provider/InputProvider.svelte';

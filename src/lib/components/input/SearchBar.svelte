@@ -1,6 +1,6 @@
 <script>
 	import SearchIcon from '$lib/icons/SearchIcon.svelte';
-	import Input from '$lib/components/Input.svelte';
+	import Input from '$lib/components/input/Input.svelte';
 
 	export let value = '';
 </script>
