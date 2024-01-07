@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import SearchBar from '$lib/components/SearchBar.svelte';
+	import SearchBar from '$lib/components/input/SearchBar.svelte';
 	import ContactCard from '$lib/components/contact/ContactCard.svelte';
 	import EmptyContacts from '$lib/components/contact/EmptyContacts.svelte';
 	import AddIcon from '$lib/icons/AddIcon.svelte';
