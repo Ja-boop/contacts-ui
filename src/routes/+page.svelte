@@ -8,6 +8,7 @@
 	import { createSearchStore, searchHandler } from '$lib/stores/search';
 	import { onDestroy } from 'svelte';
 	import type { PageData } from './$types';
+	import Button from '$lib/components/Button.svelte';
 
 	export let data: PageData;
 	const { contacts } = data;
@@ -47,11 +48,11 @@
 				2xl:px-52"
 			>
 				{#each $searchStore.filtered as { name, title, image_path, id }}
-					<button on:click={() => goto(`/contact/${id}`)}>
+					<a href="/contact/{id}">
 						<li data-cy="contact-list-item">
 							<ContactCard imageUrl={`${imageUrl}/${image_path}`} {name} {title} />
 						</li>
-					</button>
+					</a>
 				{/each}
 			</ul>
 		{/if}
@@ -62,7 +63,7 @@
 			<div class="fixed mr-8 mb-11 bottom-0 right-0 h-24 sm:hidden">
 				<AddIcon />
 			</div>
-			<button class="contact-btn px-14 max-sm:hidden" data-cy="add-contact-btn">Add new contacts</button>
+			<Button class="px-14 max-sm:hidden" data-cy="add-contact-btn">Add new contacts</Button>
 		</a>
 	</div>
 </div>
